@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Risk Assessment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+        }
+        label {
+            font-weight: bold;
+            color: #333;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button[type="button"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+        button[type="button"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Diabetes Risk Assessment</h1>
+
+<form id="diabetesForm">
+    <label for="pregnancies">Number of Pregnancies:</label>
+    <input type="number" id="pregnancies" name="pregnancies" required><br>
+
+    <label for="glucose">Glucose Level (mg/dL):</label>
+    <input type="number" id="glucose" name="glucose" required><br>
+
+    <label for="blood_pressure">Blood Pressure (mmHg):</label>
+    <input type="number" id="blood_pressure" name="blood_pressure" required><br>
+
+    <label for="skin_thickness">Skin Thickness (mm):</label>
+    <input type="number" id="skin_thickness" name="skin_thickness" required><br>
+
+    <label for="insulin">Insulin Level (mu U/ml):</label>
+    <input type="number" id="insulin" name="insulin" required><br>
+
+    <label for="bmi">Body Mass Index (BMI):</label>
+    <input type="number" id="bmi" name="bmi" required><br>
+
+    <label for="diabetesPedigree">Diabetes Pedigree Function:</label>
+    <input type="number" id="diabetesPedigree" name="diabetesPedigree" required><br>
+
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age" required><br>
+
+    <button type="button" id="predictBtn">Predict Risk</button>
+</form>
+
+</body>
+</html>
+
+<script>
+    document.getElementById('predictBtn').addEventListener('click', function() {
+        // Collect form data
+        const pregnancies = document.getElementById('pregnancies').value;
+        const glucose = document.getElementById('glucose').value;
+        const blood_pressure = document.getElementById('blood_pressure').value;
+        const skin_thickness = document.getElementById('skin_thickness').value;
+        const insulin = document.getElementById('insulin').value;
+        const bmi = document.getElementById('bmi').value;
+        const diabetesPedigree = document.getElementById('diabetesPedigree').value;
+        const age = document.getElementById('age').value;
+
+        // Send JSON data to the server
+        fetch('/result', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                pregnancies: pregnancies,
+                glucose: glucose,
+                blood_pressure: blood_pressure,
+                skin_thickness: skin_thickness,
+                insulin: insulin,
+                bmi: bmi,
+                diabetesPedigree: diabetesPedigree,
+                age: age
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Redirect to the result page with the prediction value
+            window.location.href = `/result?prediction=${data.prediction}`;
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
+    });
+</script>

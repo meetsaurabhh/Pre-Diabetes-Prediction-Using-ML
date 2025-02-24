@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prediction Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f8f8;
+        }
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+        }
+        .result-container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .result {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        strong {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Diabetes Prediction Result</h1>
+    <div class="result-container">
+        <div class="result" id="prediction-result" data-prediction="{{ prediction }}">
+            <strong>Prediction:</strong> 
+        </div>
+        <div class="result" id="tips">
+            <strong>Tips:</strong>
+        </div>
+    </div>
+
+    <script>
+        // Get the prediction value from the data attribute
+        var prediction = document.getElementById('prediction-result').getAttribute('data-prediction');
+
+        // Convert prediction value to integer
+        prediction = parseInt(prediction);
+
+        // Get the prediction result element
+        var predictionResultElement = document.getElementById('prediction-result');
+
+        // Get the tips element
+        var tipsElement = document.getElementById('tips');
+
+        // Set the prediction text and tips based on the prediction value
+        if (prediction === 0) {
+            predictionResultElement.innerHTML += 'For now you are Healthy';
+            tipsElement.innerHTML += ' Maintain a healthy lifestyle, eat a balanced diet, and engage in regular exercise. Regular monitoring of blood sugar levels is recommended.';
+        } else {
+            predictionResultElement.innerHTML += 'You have high chances of being Diabetic';
+            tipsElement.innerHTML += ' Follow a diabetic-friendly diet, maintain regular physical activity, monitor blood sugar levels diligently, and adhere to prescribed medications as advised by your healthcare provider.';
+        }
+    </script>
+</body>
+</html>

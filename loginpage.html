@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <!-- <link rel="stylesheet" href="C:\Users\LENOVO\Desktop\python\static\css"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-image: url(https://images.pexels.com/photos/5863391/pexels-photo-5863391.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+            background-size: cover;
+            backdrop-filter: blur(2px);
+            background-color: #e8f0fe;
+            font-family: Arial, sans-serif;
+            font-style: normal;
+            font-weight: 400;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            min-width: 100vw;
+
+        }
+
+
+        .form-container {
+            background-color: #fff;
+            padding: 30px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15);
+            border-radius: 8px;
+            box-shadow: 5px 10px 5px rgba(102, 136, 146, 0.807);
+        }
+
+        .signup {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px 15px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        input[type="text"]::placeholder,
+        input[type="email"]::placeholder,
+        input[type="password"]::placeholder {
+            color: #ccc;
+        }
+
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px 20px;
+            background-color: #5fb5c8;
+            /* Blue gradient */
+            color: #fff;
+            /* White text */
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #5492a6;
+        }
+
+        button:active {
+            transform: translateY(2px);
+        }
+
+        .text {
+            text-align: center;
+            font-size: 14px;
+            color: #777;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .text a {
+            color: #5fb5c8;
+            text-decoration: none;
+        }
+
+        .text a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: 1px solid #ddd;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+
+        .social-links {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .logo {
+            width: 30px;
+            height: 30px;
+        }
+
+        .logo:active {
+            transform: scale(0.9);
+        }
+        .fixed-logo {
+            position: fixed;
+            bottom: 10px; 
+            right: 10px; 
+            width: 70px; 
+            height: auto; 
+            opacity: 0.7; 
+            filter: contrast(200%);
+            
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+        <section class="form-container">
+            <h1 class="signup">SIGN UP</h1>
+            <!-- Replace this form with the modified form -->
+            <form action="/login_submit" method="POST">
+                 <!-- Login form fields -->
+                <label for="fullName">Full name:</label>
+                <input type="text" id="fullName" name="fullName" placeholder="Maxtern" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="abcxyz123@gmail.com" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="*" required>
+
+                <button type="submit">Log In</button>
+                <p class="text">
+                    <a href="index.html">Already have an account? Log in.</a>
+                </p>
+            </form>
+            <!-- <h1 class="signup">SIGN UP</h1>
+            <form action="/index" method="post">
+                <label for="fullName">Full name:</label>
+                <input type="text" id="fullName" name="fullName" placeholder="Om Patel" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="abcxyz123@gmail.com" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="*" required>
+
+                <a href="2.html" style="text-decoration: none"><button type="submit">Log In</button></a>
+                <p class="text">
+                    <a href="index.html">Already have an account? Log in.</a>
+                </p>
+
+                <input type="submit" value="Submit">
+            </form>
+            <hr> -->
+            <section class="social-links">
+                <a href="https://www.facebook.com" target="_blank"><img
+                        src="https://img.freepik.com/premium-vector/blue-social-media-logo_197792-1759.jpg"
+                        alt="Facebook" class="logo"></a>
+                <a href="https://www.instagram.com" target="_blank"><img
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png"
+                        alt="Instagram" class="logo"></a>
+                <a href="https://www.linkedin.com" target="_blank"><img
+                        src="https://img.freepik.com/premium-vector/square-linkedin-logo-isolated-white-background_469489-892.jpg"
+                        alt="LinkedIn" class="logo"></a>
+                <a href="https://twitter.com" target="_blank"><img
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/512px-Logo_of_Twitter.svg.png"
+                        alt="Twitter" class="logo"></a>
+                <a href="https://mail.google.com" target="_blank"><img
+                        src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" alt="Gmail"
+                        class="logo"></a>
+            </section>
+        </section>
+    </main>
+    <img src="..\static\logo123.png" alt="Logo" class="fixed-logo">
+</body>
+
+</html>
